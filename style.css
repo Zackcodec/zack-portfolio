@@ -1,0 +1,350 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Overlay for better contrast */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 30, 0.6); /* Dark overlay for text readability */
+  z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(20, 20, 30, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+.logo span {
+  color: #8a5dff; /* Purple to match theme */
+}
+
+.nav-links ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+.nav-links a:hover {
+  color: #fff;
+}
+
+.auth .signup {
+  background: #8a5dff; /* Purple button */
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Sections */
+section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  margin-top: 180px; /* Shift up for better visibility */
+  box-shadow: #111;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+/* Gradient for two parts of text */
+.hero h1 .highlight-1 {
+  background: linear-gradient(90deg, #a259ff, #6a00f4); /* Matches theme */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h1 .highlight-2 {
+  color: #fff; /* Pure white for contrast */
+}
+.cta {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cta input, .contact input, .contact textarea {
+  padding: 14px;
+  width: 250px;
+  border-radius: 8px;
+  border: none;
+}
+.cta button, .contact button {
+  background: #8a5dff;
+  border: none;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+/*about section */
+.about {
+  padding: 225px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.about-text {
+  flex: 1;
+  color: #fff;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #8a5dff;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-text {
+    text-align: center;
+  }
+}
+
+
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+}
+.card video {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+
+/* Contact Section - Split Layout */
+.contact {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 50px auto;
+}
+
+.contact-form select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1); /* transparent look */
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 15px;
+  appearance: none; /* remove default arrow */
+}
+
+.contact-form select option {
+  background: #111; /* dark dropdown background */
+  color: #fff;
+}
+
+.contact-form select:focus {
+  outline: none;
+  border: 2px solid #8a5dff; /* theme highlight */
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info {
+  color: #fff;
+  text-align: left;
+}
+
+.contact-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #a259ff, #6a00f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #8a5dff;
+  box-shadow: 0 0 8px rgba(138, 93, 255, 0.5);
+}
+
+.contact-form button {
+  background: linear-gradient(90deg, #a259ff, #6a00f4);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(90deg, #6a00f4, #a259ff);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(20, 20, 30, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .nav-links ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .nav-links.active {
+    display: block;
+  }
+}
