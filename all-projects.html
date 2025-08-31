@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Projects - Zack's Portfolio</title>
+  <style>
+    body {
+      background: url('background.jpg') no-repeat center center fixed;
+       background-size: cover;
+       color: #fff;
+        min-height: 100vh;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background: #121212;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    header nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+    }
+
+    header nav a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-buttons button {
+      background: #1c1c1c;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background: #6a00f4;
+      color: #fff;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px 50px;
+    }
+
+    /* Short Form (9:16) */
+    .short-form .video-card {
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%; /* 9:16 ratio */
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Long Form (16:9) */
+    .long-form .video-card {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 ratio */
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-card video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #121212;
+      color: #aaa;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    /* Hide long form initially */
+    .long-form { display: none; }
+  </style>
+</head>
+<body>
+    
+  <header>
+    <div class="logo">Zack<span>.</span></div>
+    <nav>
+      <a href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>All Video Editing Projects</h1>
+    <p>Explore my Short and Long Form edits</p>
+  </section>
+
+  <div class="filter-buttons">
+    <button id="shortBtn" class="active">Short Form Content</button>
+    <button id="longBtn">Long Form Content</button>
+  </div>
+
+  <!-- Short Form Videos -->
+  <section class="projects-grid short-form" id="short-form">
+    <div class="video-card"><video controls><source src="project1.mp4" type="video/mp4"></video></div>
+    <div class="video-card"><video controls><source src="project2.mp4" type="video/mp4"></video></div>
+    <div class="video-card"><video controls><source src="project3.mp4" type="video/mp4"></video></div>
+    <div class="video-card"><video controls><source src="Project4.mp4" type="video/mp4"></video></div>
+    <!-- Add more short-form videos -->
+  </section>
+
+  <!-- Long Form Videos -->
+  <section class="projects-grid long-form" id="long-form">
+    <div class="video-card"><video controls><source src="longform1.mp4" type="video/mp4"></video></div>
+    <div class="video-card"><video controls><source src="longform2.mp4" type="video/mp4"></video></div>
+    <div class="video-card"><video controls><source src="longform3.mp4" type="video/mp4"></video></div>
+    <!-- Add more long-form videos -->
+  </section>
+
+  <footer>
+    © 2025 Zack's Portfolio | All Rights Reserved
+  </footer>
+
+  <script>
+    const shortBtn = document.getElementById('shortBtn');
+    const longBtn = document.getElementById('longBtn');
+    const shortForm = document.getElementById('short-form');
+    const longForm = document.getElementById('long-form');
+
+    shortBtn.addEventListener('click', () => {
+      shortForm.style.display = 'grid';
+      longForm.style.display = 'none';
+      shortBtn.classList.add('active');
+      longBtn.classList.remove('active');
+    });
+
+    longBtn.addEventListener('click', () => {
+      longForm.style.display = 'grid';
+      shortForm.style.display = 'none';
+      longBtn.classList.add('active');
+      shortBtn.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
